@@ -34,7 +34,7 @@ public class HotelRepository {
 	 * @param price この価格以下のホテルを取得する
 	 * @return 指定した価格以下のホテルのドメインが値段の降順で入っているリスト
 	 */
-	public List<Hotel> findLessPrice(int price) {
+	public List<Hotel> findByLessThanPrice(int price) {
 		String sql = "SELECT id,area_name,hotel_name,address,nearest_station,price,parking FROM " + TABLE_HOTELS
 				+ " WHERE price <= :price ORDER BY price DESC;";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);

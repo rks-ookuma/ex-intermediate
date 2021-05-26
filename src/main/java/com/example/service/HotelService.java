@@ -22,8 +22,8 @@ public class HotelService {
 	 * @param price この価格以下のホテルを取得する
 	 * @return 指定した価格以下のホテルのドメインが価格の降順で入ったリスト
 	 */
-	public List<Hotel> showHotelLessPrice(int price) {
-		return repository.findLessPrice(price);
+	public List<Hotel> serchByLessThanPrice(int price) {
+		return repository.findByLessThanPrice(price);
 	}
 
 	public List<Hotel> showAllHotel() {
