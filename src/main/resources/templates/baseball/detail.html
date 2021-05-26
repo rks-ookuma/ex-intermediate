@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div th:object="${team}">
+        <h1>球団名</h1>
+        <p th:text="*{teamName}">読売ジャイアンツ</p>
+        
+        <h1>本拠地</h1>
+        <p th:text="*{headquarters}">東京ドーム（東京都・文京区）</p>
+        
+        <h1>発足</h1>
+        <p th:text="*{inauguration}">1934年12月26日</p>
+
+        <h1>歴史</h1>
+        <pre th:text="*{history}">
+            大日本東京野球クラブ（1934年）
+            ↓
+            東京巨人軍（1935年～1946年）
+        </pre>
+
+        <a href="list.html" th:href="@{/baseballTeam}">戻る</a>
+    </div>
+</body>
+</html>
