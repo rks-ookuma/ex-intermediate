@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Team;
-import com.example.service.BaseballTeamService;
+import com.example.service.TeamService;
 
 /**
  * 野球チーム関連の制御をするコントローラー.
@@ -18,10 +18,10 @@ import com.example.service.BaseballTeamService;
  */
 @Controller
 @RequestMapping("/baseballTeam")
-public class BaseballTeamController {
+public class TeamController {
 
 	@Autowired
-	private BaseballTeamService service;
+	private TeamService service;
 
 	/**
 	 * 野球チームの一覧を表示する.

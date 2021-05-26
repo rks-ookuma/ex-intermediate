@@ -9,7 +9,7 @@ package com.example.domain;
 public class Team {
 
 	/** ID */
-	private int id;
+	private Integer id;
 	/** 所属しているリーグ名 */
 	private String leagueName;
 	/** チーム名 */

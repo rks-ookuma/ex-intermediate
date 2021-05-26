@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Team;
-import com.example.repository.BaseballTeamRepository;
+import com.example.repository.TeamRepository;
 
 /**
  * 野球チーム関連の業務処理を行うクラス.
@@ -15,10 +16,11 @@ import com.example.repository.BaseballTeamRepository;
  *
  */
 @Service
-public class BaseballTeamService {
+@Transactional
+public class TeamService {
 
 	@Autowired
-	private BaseballTeamRepository repository;
+	private TeamRepository repository;
 
 	/**
 	 * 全野球チームを取得する.

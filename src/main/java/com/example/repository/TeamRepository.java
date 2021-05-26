@@ -18,7 +18,7 @@ import com.example.domain.Team;
  *
  */
 @Repository
-public class BaseballTeamRepository {
+public class TeamRepository {
 
 	@Autowired
 	private NamedParameterJdbcTemplate template;
@@ -39,11 +39,11 @@ public class BaseballTeamRepository {
 	/**
 	 * 野球チームを全件取得する.
 	 * 
-	 * @return 全野球チームのドメインが入ったリスト
+	 * @return 全野球チームのドメインが発足年月日の昇順で入ったリスト
 	 */
 	public List<Team> findAll() {
 		String sql = "SELECT id,league_name,team_name,headquarters,inauguration,history FROM " + TABLE_TEAMS
-				+ " ORDER BY id;";
+				+ " ORDER BY inauguration;";
 		List<Team> teamList = template.query(sql, TEAM_ROW_MAPPER);
 		return teamList;
 	}
