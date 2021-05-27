@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 public class HotelSerchForm {
 
 	/** 検索したい価格 */
-	@Pattern(regexp = "^[0-9]*$", message = "金額を半角数字で入力してください")
+	@Pattern(regexp = "^[0-9]{0,6}$", message = "金額を半角数字で入力してください(最大6桁)")
 	private String price;
 
 	public String getPrice() {

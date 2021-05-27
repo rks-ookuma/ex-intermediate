@@ -70,9 +70,7 @@ public class ClothController {
 		List<Cloth> clothList = service.serchClothByGenderAndColor(clothSerchForm.getGender(),
 				clothSerchForm.getColor());
 
-		System.out.println("size:" + clothList.size());
 		if (clothList.size() == 0) {
-			System.out.println("検索結果０");
 			model.addAttribute("serch0Case", "検索結果は0件でした");
 		}
 
