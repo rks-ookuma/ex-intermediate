@@ -54,4 +54,16 @@ public class HotelRepository {
 		List<Hotel> hotelList = template.query(sql, HOTEL_ROW_MAPPER);
 		return hotelList;
 	}
+
+	/**
+	 * DBに登録されているホテルの件数を取得する.
+	 * 
+	 * @return 登録されているホテルの件数
+	 */
+	public int count() {
+		String sql = "SELECT COUNT(*) FROM " + TABLE_HOTELS + ";";
+		SqlParameterSource param = new MapSqlParameterSource();
+		int count = template.queryForObject(sql, param, Integer.class);
+		return count;
+	}
 }

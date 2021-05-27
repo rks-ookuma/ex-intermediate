@@ -1,7 +1,7 @@
 package com.example.domain;
 
 /**
- * ホテルの情報を表すドメイン
+ * ホテルの情報を表すドメイン.
  * 
  * @author takahiro.okuma
  *

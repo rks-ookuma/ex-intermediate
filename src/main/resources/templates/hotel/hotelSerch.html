@@ -6,10 +6,13 @@
 </head>
 <body>
     <h1>ホテル検索</h1>
-    <form action="hotelSerch.html" th:action="@{/hotel/serch}" th:object="${hotelSerchForm}">
+    <form action="hotelSerch.html" th:action="@{/hotel/serchHotel}" th:object="${hotelSerchForm}" method="POST">
+        <div th:errors="*{price}" style="color: red;">エラー</div>
         <input type="number" name="serchPrice" th:field="*{price}"> 円以下<br>
         <button>検索</button>
     </form>
+
+    <div th:if="${notExistData}" th:text="${notExistData}">DBにホテルのデータが登録されていません</div>    
 
     <table th:each=" hotel : ${hotelList}" border="1">
         <tr>

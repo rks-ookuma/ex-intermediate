@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +35,15 @@ public class HotelController {
 	/**
 	 * ホテルの検索画面を表示させる.
 	 * 
+	 * @param model リクエストスコープ
 	 * @return ホテルの検索画面
 	 */
 	@RequestMapping("")
-	public String index() {
+	public String index(Model model) {
+		// 最初からデータを表示するわけではないのでいらなかったのでは？
+		if (service.existHotelData()) {
+			model.addAttribute("notExistData", "DBにホテルのデータが登録されていません");
+		}
 		return "hotel/hotelSerch";
 	}
 
@@ -58,13 +62,7 @@ public class HotelController {
 			return "hotel/hotelSerch";
 		}
 
-		List<Hotel> hotelList = new ArrayList<>();
-
-		if (hotelSerchForm.getPrice() == null) {
-			hotelList = service.showAllHotel();
-		} else {
-			hotelList = service.serchByLessThanPrice(hotelSerchForm.getPrice());
-		}
+		List<Hotel> hotelList = service.serchByLessThanPrice(hotelSerchForm.getPrice());
 
 		model.addAttribute("hotelList", hotelList);
 		return "hotel/hotelSerch";
